@@ -35,8 +35,8 @@ volumes:
 ```
 
 
-# elastic search release
-https://www.elastic.co/guide/en/elasticsearch/reference/current/es-release-notes.html
+# elasticsearch docker release
+https://hub.docker.com/_/elasticsearch?tab=tags&page=1&ordering=last_updated
 
 # 相似项目
 
