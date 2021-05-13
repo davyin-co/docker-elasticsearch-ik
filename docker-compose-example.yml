@@ -19,3 +19,7 @@ services:
       - ./es01:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
+networks:
+   default:
+     external:
+       name: proxy
