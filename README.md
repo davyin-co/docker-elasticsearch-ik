@@ -7,7 +7,7 @@ ElasticSearch含有IK分词插件。基于官方elasticsearch镜像。
 version: '2.2'
 services:
   es01:
-    image: davyinsa/elasticsearch-ik:7.11.1
+    image: davyinsa/elasticsearch-ik:7.13.3
     container_name: es01
     environment:
       - discovery.type=single-node
