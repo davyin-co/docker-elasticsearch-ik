@@ -4,7 +4,7 @@ ElasticSearch含有IK分词插件。基于官方elasticsearch镜像。
 # docker-compose.yml
 
 ```
-version: '2.2'
+version: '3'
 services:
   es01:
     image: davyinsa/elasticsearch-ik:7.13.3
