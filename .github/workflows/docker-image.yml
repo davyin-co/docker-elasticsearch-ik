@@ -21,7 +21,10 @@ jobs:
          - tag: 7.12.1
            Dockerfile: "7.12.1/Dockerfile"
            image: "davyinsa/elasticsearch-ik:7.12.1"
-         - tag: 7.13.3
+         - tag: 7.13.4
+           Dockerfile: "7.13.3/Dockerfile"
+           image: "davyinsa/elasticsearch-ik:7.13.3"
+         - tag: 7.14.1
            Dockerfile: "7.13.3/Dockerfile"
            image: "davyinsa/elasticsearch-ik:7.13.3"
 
