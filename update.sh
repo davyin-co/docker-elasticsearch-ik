@@ -8,7 +8,7 @@ sedStr="
 sed -e "$sedStr" $1
 }
 
-versions=(7.10.1 7.11.2 7.12.1 7.13.4 7.14.1)
+versions=(7.10.1 7.11.2 7.12.1 7.13.4 7.14.0)
 for version in ${versions[*]}; do
   if [ ! -d $version ]; then
     mkdir $version
