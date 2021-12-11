@@ -16,7 +16,7 @@ RUN rm /usr/share/elasticsearch/lib/log4j-core-* \
     tar xzvf log4j.tgz && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-core-2.15.0.jar /tmp/apache-log4j-2.15.0-bin/log4j-api-2.15.0.jar /usr/share/elasticsearch/lib/ && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-1.2-api-2.15.0.jar  /usr/share/elasticsearch/modules/x-pack-core/ && \
-    cp /tmp/apache-log4j-2.15.0-bin/log4j-1.2-api-2.15.0.jar   /usr/share/elasticsearch/modules/repository-url/ && \
+    #cp /tmp/apache-log4j-2.15.0-bin/log4j-1.2-api-2.15.0.jar   /usr/share/elasticsearch/modules/repository-url/ && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-slf4j-impl-2.15.0.jar  /usr/share/elasticsearch/modules/x-pack-identity-provider/ && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-slf4j-impl-2.15.0.jar /usr/share/elasticsearch/modules/x-pack-security/ && \
     rm -rf  /tmp/apache-log4j-2.15.0-bin && rm /tmp/log4j.tgz
