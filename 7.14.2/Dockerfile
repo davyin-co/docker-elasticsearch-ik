@@ -11,7 +11,7 @@ RUN rm /usr/share/elasticsearch/lib/log4j-core-2.11.1.jar \
     /usr/share/elasticsearch/modules/repository-url/log4j-1.2-api-2.11.1.jar \
     /usr/share/elasticsearch/modules/x-pack-identity-provider/log4j-slf4j-impl-2.11.1.jar \
     /usr/share/elasticsearch/modules/x-pack-security/log4j-slf4j-impl-2.11.1.jar && \ 
-    wget https://downloads.apache.org/logging/log4j/2.15.0/apache-log4j-2.15.0-bin.tar.gz -O /tmp/log4j.tgz && \
+    curl -L https://downloads.apache.org/logging/log4j/2.15.0/apache-log4j-2.15.0-bin.tar.gz -o /tmp/log4j.tgz && \
     cd /tmp/ && \
     tar xzvf log4j.tgz && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-core-2.15.0.jar /tmp/apache-log4j-2.15.0-bin/log4j-api-2.15.0.jar /usr/share/elasticsearch/lib/ && \
@@ -19,4 +19,4 @@ RUN rm /usr/share/elasticsearch/lib/log4j-core-2.11.1.jar \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-1.2-api-2.15.0.jar   /usr/share/elasticsearch/modules/repository-url/ && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-slf4j-impl-2.15.0.jar  /usr/share/elasticsearch/modules/x-pack-identity-provider/ && \
     cp /tmp/apache-log4j-2.15.0-bin/log4j-slf4j-impl-2.15.0.jar /usr/share/elasticsearch/modules/x-pack-security/ && \
-    rm -rf  /tmp/apache-log4j-2.15.0-bin && rm /tmp/log4j.tgz && \
+    rm -rf  /tmp/apache-log4j-2.15.0-bin && rm /tmp/log4j.tgz
