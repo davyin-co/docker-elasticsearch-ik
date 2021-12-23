@@ -1,6 +1,6 @@
 # 介绍
 ElasticSearch含有IK分词插件。基于官方elasticsearch镜像。
-## Using 7.16.1 或以上版本，修复了log4j2的安全漏洞；7.16.1一下版本风险自担。
+## Using 7.16.2 或以上版本，修复了log4j2的安全漏洞；7.16.2以下版本风险自担。
 
 # docker-compose.yml
 
