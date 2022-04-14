@@ -11,32 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-       include:
-         - tag: 7.10.1
-           Dockerfile: "7.10.1/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.10.1"
-         - tag: 7.11.2
-           Dockerfile: "7.11.2/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.11.2"
-         - tag: 7.12.1
-           Dockerfile: "7.12.1/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.12.1"
-         - tag: 7.13.4
-           Dockerfile: "7.13.4/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.13.4"
-         - tag: 7.14.2
-           Dockerfile: "7.14.2/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.14.2"
-         - tag: 7.16.3
-           Dockerfile: "7.16.3/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.16.3"
-         - tag: 7.17.2
-           Dockerfile: "7.17.2/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:7.17.2"
-         - tag: 8.1.2
-           Dockerfile: "8.1.2/Dockerfile"
-           image: "davyinsa/elasticsearch-ik:8.1.2"
-
+        version:
+          - 7.10.1
+          - 7.11.2
+          - 7.12.1
+          - 7.13.4
+          - 7.14.2
+          - 7.16.3
+          - 7.17.2
+          - 8.1.2
 
     steps:
     - uses: actions/checkout@v2
@@ -59,5 +42,5 @@ jobs:
       with:
         push: true
         context: .
-        file: '${{ matrix.tag }}/Dockerfile'
-        tags: 'davyinsa/elasticsearch-ik:${{ matrix.tag }}'
+        file: '${{ matrix.version }}/Dockerfile'
+        tags: 'davyinsa/elasticsearch-ik:${{ matrix.version }}'
