@@ -1,5 +1,5 @@
 # 介绍
-ElasticSearch含有IK分词插件。基于官方elasticsearch镜像。
+ElasticSearch含有[IK分词插件](https://github.com/medcl/elasticsearch-analysis-ik)。基于官方elasticsearch镜像。
 ## Using 7.16.2 或以上版本，修复了log4j2的安全漏洞；7.16.2以下版本风险自担。
 
 # docker-compose.yml
