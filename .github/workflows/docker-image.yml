@@ -46,6 +46,6 @@ jobs:
         push: true
         context: .
         file: '${{ matrix.version }}/Dockerfile'
-        tags: 'davyinsa/elasticsearch-ik:${{ matrix.version }}'
+        tags: 'leaves615/elasticsearch-ik:${{ matrix.version }}'
         build-args: |
           ES_VERSION=${{ matrix.version }}
