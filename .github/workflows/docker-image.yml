@@ -18,11 +18,12 @@ jobs:
           - 7.13.4
           - 7.14.2
           - 7.16.3
-          - 7.17.6
+          - 7.17.18
           - 8.1.3
           - 8.2.3
           - 8.3.3
           - 8.4.3
+          - 8.12.2
 
     steps:
     - uses: actions/checkout@v2
@@ -45,7 +46,8 @@ jobs:
       with:
         push: true
         context: .
-        file: '${{ matrix.version }}/Dockerfile'
+        file: 'Dockerfile.template'
+        platforms: linux/amd64,linux/arm64
         tags: 'davyinsa/elasticsearch-ik:${{ matrix.version }}'
         build-args: |
           ES_VERSION=${{ matrix.version }}
