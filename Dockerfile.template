@@ -4,4 +4,5 @@ FROM elasticsearch:${ES_VERSION}
 
 # https://github.com/medcl/elasticsearch-analysis-ik/releases
 ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip
+RUN echo ${ES_VERSION} && echo $IK_RELEASE && echo ${IK_RELEASE}
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch $IK_RELEASE
