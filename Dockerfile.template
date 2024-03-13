@@ -1,7 +1,7 @@
 ARG ES_VERSION
-ENV ENV_ES_VERSION=${ES_VERSION}
 # https://github.com/elastic/elasticsearch-docker
 FROM elasticsearch:${ES_VERSION}
+ARG ES_VERSION
 
 # https://github.com/medcl/elasticsearch-analysis-ik/releases
 ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ENV_ES_VERSION}/elasticsearch-analysis-ik-${ENV_ES_VERSION}.zip
