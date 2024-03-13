@@ -1,8 +1,9 @@
 ARG ES_VERSION
+ENV ENV_ES_VERSION=${ES_VERSION}
 # https://github.com/elastic/elasticsearch-docker
 FROM elasticsearch:${ES_VERSION}
 
 # https://github.com/medcl/elasticsearch-analysis-ik/releases
-ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip
+ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ENV_ES_VERSION}/elasticsearch-analysis-ik-${ENV_ES_VERSION}.zip
 RUN echo ${ES_VERSION} && echo $IK_RELEASE && echo ${IK_RELEASE}
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch $IK_RELEASE
