@@ -23,6 +23,7 @@ jobs:
           # - 8.2.3
           # - 8.3.3
           - 8.4.3
+          - 8.12.2
 
     steps:
     - uses: actions/checkout@v2
@@ -46,6 +47,7 @@ jobs:
         push: true
         context: .
         file: '${{ matrix.version }}/Dockerfile'
+        platforms: linux/amd64,linux/arm64
         tags: 'leaves615/elasticsearch-ik:${{ matrix.version }}'
         build-args: |
           ES_VERSION=${{ matrix.version }}
