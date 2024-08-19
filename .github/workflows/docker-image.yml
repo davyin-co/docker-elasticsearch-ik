@@ -24,6 +24,7 @@ jobs:
           - 8.3.3
           - 8.4.3
           - 8.12.2
+          - 8.15.0
 
     steps:
     - uses: actions/checkout@v2
@@ -49,5 +50,21 @@ jobs:
         file: 'Dockerfile.template'
         platforms: linux/amd64,linux/arm64
         tags: 'davyinsa/elasticsearch-ik:${{ matrix.version }}'
+        build-args: |
+          ES_VERSION=${{ matrix.version }}
+    - name: Login to ALIYUN CR
+      uses: docker/login-action@v3
+      with:
+        registry: registry.cn-hangzhou.aliyuncs.com
+        username: ${{ secrets.ALIYUNCR_USERNAME }}
+        password: ${{ secrets.ALIYUNCR_PASSWORD }}
+    - name: Build and push to dockerhub
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        context: .
+        platforms: linux/amd64,linux/arm64
+        file: "Dockerfile.template"
+        tags: "registry.cn-hangzhou.aliyuncs.com/davyin/elasticsearch-ik:${{ matrix.version }}"
         build-args: |
           ES_VERSION=${{ matrix.version }}
