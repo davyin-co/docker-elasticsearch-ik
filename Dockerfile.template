@@ -3,7 +3,14 @@ ARG ES_VERSION
 FROM elasticsearch:${ES_VERSION}
 ARG ES_VERSION
 
-# https://github.com/medcl/elasticsearch-analysis-ik/releases
-ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip
-RUN echo ${ES_VERSION} && echo $IK_RELEASE && echo ${IK_RELEASE}
-RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch $IK_RELEASE
+# https://release.infinilabs.com/analysis-ik/stable/
+ENV IK_BASE_URL=https://release.infinilabs.com/analysis-ik/stable
+ENV IK_ZIP=elasticsearch-analysis-ik-${ES_VERSION}.zip
+ENV IK_RELEASE=${IK_BASE_URL}/${IK_ZIP}
+
+RUN set -eux; \
+    curl -fSL --retry 3 -o /tmp/ik.zip     "${IK_RELEASE}"; \
+    curl -fSL --retry 3 -o /tmp/ik.zip.sha "${IK_RELEASE}.sha512"; \
+    cd /tmp && sha512sum -c ik.zip.sha; \
+    /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch file:///tmp/ik.zip; \
+    rm -f /tmp/ik.zip /tmp/ik.zip.sha
