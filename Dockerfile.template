@@ -3,7 +3,9 @@ ARG ES_VERSION
 FROM elasticsearch:${ES_VERSION}
 ARG ES_VERSION
 
-# https://github.com/medcl/elasticsearch-analysis-ik/releases
-ENV IK_RELEASE=https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip
-RUN echo ${ES_VERSION} && echo $IK_RELEASE && echo ${IK_RELEASE}
-RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch $IK_RELEASE
+# IK plugin release hosting migrated to https://release.infinilabs.com/analysis-ik/stable/
+# (previously on https://github.com/medcl/elasticsearch-analysis-ik/releases).
+# New naming drops the 'v' prefix on the version.
+ENV IK_RELEASE=https://release.infinilabs.com/analysis-ik/stable/elasticsearch-analysis-ik-${ES_VERSION}.zip
+
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch ${IK_RELEASE}
