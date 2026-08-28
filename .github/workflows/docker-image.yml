@@ -67,6 +67,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/build-push-action@v6
         with:
+          provenance: false
+          sbom: false
           push: true
           context: .
           file: Dockerfile.template
@@ -89,6 +91,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/build-push-action@v6
         with:
+          provenance: false
+          sbom: false
           push: true
           context: .
           file: Dockerfile.template
@@ -103,6 +107,8 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v6
         with:
+          provenance: false
+          sbom: false
           push: false
           context: .
           file: Dockerfile.template
